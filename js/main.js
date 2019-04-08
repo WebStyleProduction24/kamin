@@ -682,7 +682,7 @@ $(function(){
 				theCatalog = true;
 			}
 			$.ajax({
-				url       : '/emailOrder.php',
+				url       : '/sendEmail.php',
 				data      : data,
 				type      : 'post',
 				success   : function() {
@@ -698,54 +698,7 @@ $(function(){
 						$('#modal_thank').arcticmodal();
 					}
 
-					switch (type_form) {
-						case "Форма 'Каталог со скидкой 30%'":
-							ga('send', 'event', 'forma', 'FORM_SKIDKA30');
-							ym(47960552, 'reachGoal', 'FORM_SKIDKA30');
-							break;
-
-						case "Форма 'А вы настроены серьезно'":
-							ga('send', 'event', 'forma', 'FORM_SERIEZNO');
-							ym(47960552, 'reachGoal', 'FORM_SERIEZNO');
-							break;
-
-						case "Форма 'Стойте, не уходите!'":
-							ga('send', 'event', 'forma', 'FORM_WAIT');
-							ym(47960552, 'reachGoal', 'FORM_WAIT');
-							break;
-
-						case "Форма 'Получите самые горячие условия на опт!'":
-							ga('send', 'event', 'forma', 'FORM_OPT');
-							ym(47960552, 'reachGoal', 'FORM_OPT');
-							break;
-
-						case "Форма 'Закажите основание для вашей печи'":
-							ga('send', 'event', 'forma', 'FORM_OSNOVANIE');
-							ym(47960552, 'reachGoal', 'FORM_OSNOVANIE');
-							break;
-
-						case "Форма 'Заказать обратный звонок'":
-							ga('send', 'event', 'forma', 'FORM_CALLBACK');
-							ym(47960552, 'reachGoal', 'FORM_CALLBACK');
-							break;
-
-						case "Форма 'Купить комплект по акции (3 товара)'":
-							ga('send', 'event', 'forma', 'FORM_PROMO3IN1');
-							ym(47960552, 'reachGoal', 'FORM_PROMO3IN1');
-							break;
-
-						case "Форма 'Квиз'":
-							ga('send', 'event', 'forma', 'QUIZ_FORM');
-							ym(47960552, 'reachGoal', 'QUIZ_FORM');
-							break;
-
-						case "Форма 'Купить товар'":
-							ga('send', 'event', 'forma', 'FORM_BUYTOVAR');
-							ym(47960552, 'reachGoal', 'FORM_BUYTOVAR');
-							break;
-
-						default: ;
-					}
+					
 				},
 				error     : function(){
 					$.arcticmodal('close');
