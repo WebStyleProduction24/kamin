@@ -599,7 +599,7 @@ $(function(){
 				theCatalog = true;
 			}
 			$.ajax({
-				url       : '/emailOrder.php',
+				url       : '/sendEmail.php',
 				data      : data,
 				type      : 'post',
 				success   : function() {
