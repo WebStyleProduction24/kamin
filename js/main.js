@@ -3,7 +3,7 @@
 $(function(){
 
 	// Определение геолокации
-	// function getURLParameter(name) {return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;} 
+	// function getURLParameter(name) {return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;}
 	// function run_geo(geo_url){
 	//  $.ajax({type: 'GET',url: geo_url,dataType: 'xml',
 	//    success: function(xml) {$(xml).find('ip').each(function(){
@@ -26,7 +26,7 @@ $(function(){
 
 		$(window).on('resize', function() {
 			if (screen.width <= 800) {
-				document.location = "/mobile/" + document.location.search; 
+				document.location = "/mobile/" + document.location.search;
 			}
 		});
 
@@ -49,37 +49,47 @@ $(function(){
 			}
 		});
 
+		// иницилизируем показ попапа об уходе только после 3го экрана
+		$(window).scroll(function() {
+			var scr_top = $(window).scrollTop();
+			if (scr_top > 2600) {
+				waitPopupInit();
+			}
+		});
 
-		
+
+
 		// Показываем попап при unhover window
-		// if (!$.cookie('modalOkno')) {
+		function waitPopupInit() {
+			if (!$.cookie('modalOkno')) {
 
-		// 	var dateExp = new Date();
-		// 	var minutesExp = 60;
-		// 	dateExp.setTime(dateExp.getTime() + (minutesExp * 60 * 1000));
+				var dateExp = new Date();
+				var minutesExp = 120;
+				dateExp.setTime(dateExp.getTime() + (minutesExp * 60 * 1000));
 
-		// 	setTimeout(function() {
-		// 		$(document).mouseleave(function (e) {
-		// 			function getWindow() {
-		// 				$('#wait-modal').arcticmodal();
-		// 				$(document).off('mouseleave');
-		// 			};
-		// 			setTimeout(getWindow, 1);
-		// 			$.cookie('modalOkno', true, {
-		// 				expires: dateExp,
-		// 				path: '/'
-		// 			});
-		// 		});
-		// 	}, 40000);
+				setTimeout(function() {
+					$(document).mouseleave(function (e) {
+						function getWindow() {
+							$('#wait-modal').arcticmodal();
+							$(document).off('mouseleave');
+						};
+						setTimeout(getWindow, 1);
+						$.cookie('modalOkno', true, {
+							expires: dateExp,
+							path: '/'
+						});
+					});
+				}, 60000);
 
-		// }
+			}
+		}
 
 
 
 
 		// КВИЗ, ответы на вопросы
 		// ==================================================
-		
+
 		var question_text = [
 		'Где будет происходить установка?',
 		'Выберите печь-барбекю',
@@ -246,20 +256,20 @@ $(function(){
 					}
 				});
 			}
-			
+
 		});
 
 
 		// Подгружаем контент КВИЗА в попап
 		$('.quiz__form').clone().appendTo('.quiz-modal');
 
-		
+
 
 
 
 		// КОНЕЦ КВИЗА, ответы на вопросы
 		// ==================================================
-		
+
 
 
 		var s2Slider = $('.s2__slider').owlCarousel({
@@ -278,7 +288,7 @@ $(function(){
 		$('.s2__tabs-next').click(function() {
 			s2Slider.trigger('next.owl.carousel');
 		});
-		
+
 		function customPager1() {
 			var tabNames = {
 				'0' : 'Сборка за <br>15-20 мин.',
@@ -315,11 +325,11 @@ $(function(){
 		$('.s3__tabs-next').click(function() {
 			s3Slider.trigger('next.owl.carousel');
 		});
-		
+
 		function customPager2() {
 			var tabNames = {
 				'0' : 'Доставим быстрее, <br>чем ТК, на ~5 дней',
-				'1' : 'Почему мы не доверяем <br>упаковку груза ТК',
+				'1' : 'Почему мы <br>упаковываем груз сами',
 				'2' : 'Ваш груз <br>застрахован',
 				'3' : 'Свой экспедитор <br>сопровождает груз'
 			};
@@ -366,7 +376,7 @@ $(function(){
 					$(this).addClass('active');
 				}
 			});
-			
+
 		});
 
 		$('.s3__innerslider-itemtext').each(function(i, elem) {
@@ -376,7 +386,7 @@ $(function(){
 
 
 		//////////////////////////////////
-		// ПАРАЛЛАКС ЭФФЕКТ ЭЛЕМЕНТОВ ЛЕГО 
+		// ПАРАЛЛАКС ЭФФЕКТ ЭЛЕМЕНТОВ ЛЕГО
 		//////////////////////////////////
 		$(document).on('mousemove', function (e) {
 			$('.s2__slide-lego_item1').css({
@@ -434,13 +444,12 @@ $(function(){
 			e.preventDefault();
 			$('#oplata-modal').arcticmodal();
 		});
-			
 
 		$('.s4__btn-rassrochka').click(function(e) {e.preventDefault();$('#rassrochka-modal').arcticmodal();});
 		$('.pech_tandyr').click(function(e) {e.preventDefault();$('#tovar6-modal').arcticmodal();});
 		$('.kostrovische_3v1').click(function(e) {e.preventDefault();$('#tovar10-modal').arcticmodal();});
 		$('.pech_pod_kazan').click(function(e) {e.preventDefault();$('#tovar5-modal').arcticmodal();});
-		
+
 		$('.s4__promo-btn').click(function(e) {e.preventDefault();$('#promo3in1-modal').arcticmodal();});
 
 		// $('#buy-tovar1-modal').arcticmodal();
@@ -466,14 +475,14 @@ $(function(){
 		});
 
 		// Показываем скрытые блоки внутри попапа Товара
-		$('.prodpopup__main-links-descr').on('click', function () { 
+		$('.prodpopup__main-links-descr').on('click', function () {
 			$(this).parents('.prodpopup__right').find('.prodpopup__descr').addClass('active');
 		});
 		$('.prodpopup__descr-close').on('click', function () {
 			$(this).parents('.prodpopup__right').find('.prodpopup__descr').removeClass('active');
 		});
 
-		$('.prodpopup__main-links-komplekt').on('click', function () { 
+		$('.prodpopup__main-links-komplekt').on('click', function () {
 			$(this).parents('.prodpopup__right').find('.prodpopup__komplekt').addClass('active');
 			$(this).parents('.prodpopup').find('.prodpopup__komplektphoto').addClass('active');
 		});
@@ -595,9 +604,9 @@ $(function(){
 		});
 
 
-		
 
-		
+
+
 
 		var options = {
 			url: "../files/russia_cities.json",
@@ -673,7 +682,7 @@ $(function(){
 
 
 		//AJAX email send
-		$('form:not(.tinkoffPayForm)').submit(function(event) {
+		$('form').submit(function(event) {
 			event.preventDefault();
 			var data = $(this).serialize();
 			var type_form = $.trim($(this).find('input[name="type_form"]').val());
@@ -698,7 +707,54 @@ $(function(){
 						$('#modal_thank').arcticmodal();
 					}
 
-					
+					switch (type_form) {
+						case "Форма 'Каталог со скидкой 30%'":
+						ga('send', 'event', 'forma', 'FORM_SKIDKA30');
+						ym(47960552, 'reachGoal', 'FORM_SKIDKA30');
+						break;
+
+						case "Форма 'А вы настроены серьезно'":
+						ga('send', 'event', 'forma', 'FORM_SERIEZNO');
+						ym(47960552, 'reachGoal', 'FORM_SERIEZNO');
+						break;
+
+						case "Форма 'Стойте, не уходите!'":
+						ga('send', 'event', 'forma', 'FORM_WAIT');
+						ym(47960552, 'reachGoal', 'FORM_WAIT');
+						break;
+
+						case "Форма 'Получите самые горячие условия на опт!'":
+						ga('send', 'event', 'forma', 'FORM_OPT');
+						ym(47960552, 'reachGoal', 'FORM_OPT');
+						break;
+
+						case "Форма 'Закажите основание для вашей печи'":
+						ga('send', 'event', 'forma', 'FORM_OSNOVANIE');
+						ym(47960552, 'reachGoal', 'FORM_OSNOVANIE');
+						break;
+
+						case "Форма 'Заказать обратный звонок'":
+						ga('send', 'event', 'forma', 'FORM_CALLBACK');
+						ym(47960552, 'reachGoal', 'FORM_CALLBACK');
+						break;
+
+						case "Форма 'Купить комплект по акции (3 товара)'":
+						ga('send', 'event', 'forma', 'FORM_PROMO3IN1');
+						ym(47960552, 'reachGoal', 'FORM_PROMO3IN1');
+						break;
+
+						case "Форма 'Квиз'":
+						ga('send', 'event', 'forma', 'QUIZ_FORM');
+						ym(47960552, 'reachGoal', 'QUIZ_FORM');
+						break;
+
+						case "Форма 'Купить товар'":
+						ga('send', 'event', 'forma', 'FORM_BUYTOVAR');
+						ym(47960552, 'reachGoal', 'FORM_BUYTOVAR');
+						break;
+
+						default: ;
+					}
 				},
 				error     : function(){
 					$.arcticmodal('close');
