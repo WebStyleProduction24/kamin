@@ -4800,12 +4800,6 @@ b {
   right: -40px;
 }
 
-.ws-quiz-container,
-.callbackkiller {
-  transition: all .25s;
-  opacity: 0 !important;
-}
-
 .ws-quiz-container.scrollShowBlock,
 .callbackkiller.scrollShowBlock {
   opacity: 1 !important;

@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/*Кастомный css от Web Style Production 24 (https://wsp24.ru/)*/
+
+.pre-loader-img .s1__city-wrap, .s1__logo .s1__city-wrap {
+	font-size: 1.8rem	
+}
+
+.footer__logo .s1__city-wrap {
+	font-size: 1.4rem;
+}
+
+.callbackkiller.cbk-phone.cbk-phone-sm.cbk-phone-waves.footer__callback-btn.scrollShowBlock {
+	display: block !important;
+	bottom: 5% !important;
+	left: auto !important;
+	transform: scale(1) !important;
+}
+
+.callbackkiller.cbk-phone.cbk-phone-sm.cbk-phone-waves.footer__callback-btn.scrollShowBlock:hover .cbk-phone-phone.cbk-rotate-icon .ws-icon-phone::before{
+	display: none!important;
+}
