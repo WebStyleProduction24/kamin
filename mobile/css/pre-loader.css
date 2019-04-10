@@ -1,0 +1,44 @@
+		.pre-loader {
+			transition: all .25s;
+			display: -webkit-flex;
+			display: -moz-flex;
+			display: -ms-flex;
+			display: -o-flex;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgba(239, 238, 233, .98);
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 999999
+		}
+
+		.pre-loader-img {
+			display: block;
+			animation: preloader 1.2s ease-in-out infinite alternate
+		}
+		.pre-loader-img .s1__city-wrap {
+			font-size: 2.2rem;
+		}
+		.s1__city-wrap {
+			font-family: "RobotoBold", sans-serif;
+			color: #FF6B00;
+		}
+
+		@keyframes preloader {
+			from {
+				opacity: 1
+			}
+
+			to {
+				opacity: 0
+			}
+		}
+
+		.hidePreloader {
+			opacity: 0;
+			visibility: hidden;
+		}
