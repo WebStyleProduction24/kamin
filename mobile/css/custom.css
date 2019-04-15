@@ -3,9 +3,11 @@
 /*Кастомный css от Web Style Production 24 (https://wsp24.ru/)*/
 
 .pre-loader-img .s1__city-wrap{
-	font-size: 2.2rem	
+	font-size: 2.2rem;
+	font-family: 'Orthodox';
 }
 
 .footer__logo .s1__city-wrap, .s1__logo .s1__city-wrap  {
-	font-size: 1.2rem;
+	font-size: 1.8rem;
+	font-family: 'Orthodox';
 }

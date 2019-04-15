@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Orthodox';
+  src: url('Orthodox.eot');
+  src: url('Orthodox.eot?#iefix') format('embedded-opentype'),
+       url('Orthodox.svg#Orthodox') format('svg'),
+       url('Orthodox.ttf') format('truetype'),
+       url('Orthodox.woff') format('woff'),
+       url('Orthodox.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
