@@ -2,12 +2,9 @@
 
 /*Кастомный css от Web Style Production 24 (https://wsp24.ru/)*/
 
-.pre-loader-img .s1__city-wrap, .s1__logo .s1__city-wrap {
-	font-size: 1.8rem	
-}
-
-.footer__logo .s1__city-wrap {
-	font-size: 1.4rem;
+.pre-loader-img .s1__city-wrap, .s1__logo .s1__city-wrap, .footer__logo .s1__city-wrap {
+	font-size: 1.8rem;
+	font-family: 'Orthodox';
 }
 
 .callbackkiller.cbk-phone.cbk-phone-sm.cbk-phone-waves.footer__callback-btn.scrollShowBlock {
