@@ -160,7 +160,7 @@ if ( $method === 'POST' ) {
   }
 }
 
-$message = "<table style='width: 100%;'>$message</table>";
+$message = "<h1>Отправлено с сайта камины в Воронеже</h1><table style='width: 100%;'>$message</table>";
 
 function adopt($text) {
   return '=?UTF-8?B?'.Base64_encode($text).'?=';
